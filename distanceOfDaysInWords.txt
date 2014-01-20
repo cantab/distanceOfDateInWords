@@ -1,0 +1,24 @@
+Let ( [ daysDifference = fromDate - toDate  ] ;
+
+Case (
+
+    daysDifference <  -720;                                           "over " & Abs( Ceiling ( daysDifference / 365 ) ) & " years ago";
+
+    daysDifference >= -720 and daysDifference < -60; "about " & Abs ( Round ( ( daysDifference / 30 ); 0 ) ) & " months ago";
+
+    daysDifference >=  -60 and daysDifference < -1;     Abs ( Round ( daysDifference; 0 ) ) & " days ago";
+
+    daysDifference =   -1;                                               "yesterday";
+
+    daysDifference =    0;                                                "today";
+
+    daysDifference =    1;                                                "tomorrow";
+
+    daysDifference >    1 and daysDifference <= 60;       Round ( daysDifference; 0 ) & " days time";
+
+    daysDifference >   60 and daysDifference <= 720;    "about " & Round ( ( daysDifference / 30 ); 0) & " months time";
+
+    daysDifference >  720;                                               "over " & Floor ( daysDifference / 365 ) & " years time";
+
+     )
+)
